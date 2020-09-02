@@ -1,0 +1,24 @@
+// Color Palette
+$fontFamily: "HYZhengYuan" !default;
+
+@mixin flexcenter() {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+// 文本溢出
+@mixin text-ellipsis () {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 多行文本溢出
+@mixin textm-ellipsis () {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

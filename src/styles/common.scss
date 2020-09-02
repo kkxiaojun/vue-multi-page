@@ -1,0 +1,20 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 640PX;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translate3d(0, 0, 0);
+  .common-login-bar {
+    max-width: 640PX;
+  }
+}
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
