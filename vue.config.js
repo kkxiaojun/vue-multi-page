@@ -1,14 +1,14 @@
 const path = require('path')
-// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-// const ProgressBarWebpackPlugin = require('progress-bar-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const { getEntry, getNPMParams } = require('./webpack/utils')
 const entry = getEntry('src/pages/*/main.js', getNPMParams().page, '.')
 const IS_PRODUCTION = process.env.ENV === 'prod'
 const ENV_CONFIG = require('./config/env')
 
-const port = 8080
+const port = 8081
 const pageName = getNPMParams().page.split('/')[1]
 
 module.exports = {
@@ -30,8 +30,7 @@ module.exports = {
         utils: path.resolve(__dirname, 'src/utils'), // 公用的函数
         pages: path.resolve(__dirname, 'src/pages'), // 多页面目录
         assets: path.resolve(__dirname, 'src/assets'), // 图片资料
-        components: path.resolve(__dirname, 'src/components'), // 公用组件
-        bargain: path.resolve(__dirname, 'src/pages/bargain')
+        components: path.resolve(__dirname, 'src/components') // 公用组件
       }
     }
   },
@@ -43,12 +42,8 @@ module.exports = {
     })
     if (!IS_PRODUCTION) {
       // 启用缓存
-      // config.plugin('hardSource')
-      //   .use(new HardSourceWebpackPlugin())
-
-      // // 进度
-      // config.plugin('ProgressBarWebpackPlugin')
-      //   .use(new ProgressBarWebpackPlugin())
+      config.plugin('hardSource')
+        .use(new HardSourceWebpackPlugin())
 
       // 控制台显示
       config.plugin('FriendlyErrorsWebpackPlugin')
@@ -59,17 +54,16 @@ module.exports = {
         }))
     }
 
-    // 开启gzip，需要配置nginx
-    // config.plugin('compressionPlugin')
-    //   .use(new CompressionPlugin({
-    //     asset: '[path].gz[query]',
-    //     algorithm: 'gzip',
-    //     test: /\.(js|css|html|svg)$/,
-    //     threshold: 10240, // 大于10K才压缩gzip
-    //     minRatio: 0.8 // 压缩比例(minRatio = Compressed Size / Original Size)
-    //   }))
-
     if (IS_PRODUCTION) {
+      // 开启gzip，需要配置nginx
+      config.plugin('compressionPlugin')
+        .use(new CompressionWebpackPlugin({
+          asset: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240, // 大于10K才压缩gzip
+          minRatio: 0.8 // 压缩比例(minRatio = Compressed Size / Original Size)
+        }))
       // 清除生产环境清除控制台输出
       config.optimization.minimizer('terser').tap((args) => {
         args[0].terserOptions.compress.drop_console = true
