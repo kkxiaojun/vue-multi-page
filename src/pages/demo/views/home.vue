@@ -1,15 +1,16 @@
 <template>
   <div>
-    <img :src="loadingImg" alt="">
+    <!-- <img :src="loadingImg" alt=""> -->
     <div class="img-box" v-for="(item, index) in imgList" :key="index">
-      <img :src="item" loading="lazy" alt="demo">
-      <!-- <img loading="lazy" width="400" height="400" :src="item" alt="..." /> -->
+      <!-- <img :src="item" loading="lazy" alt="demo"> -->
+      <img class="lazy-image" :data-src="item" alt="..." />
       <!-- <iframe :src="item" loading="lazy"></iframe> -->
     </div>
   </div>
 </template>
 
 <script>
+import LazyImage from '../utils/LazyImage'
 export default {
   data() {
     return {
@@ -19,6 +20,9 @@ export default {
   },
   mounted() {
     this.initLoad()
+    this.$nextTick(() => {
+      new LazyImage('.lazy-image')
+    })
   },
   methods: {
     initLoad() {
@@ -36,9 +40,14 @@ export default {
 
 <style lang="scss" scoped>
 .img-box {
+  border: 1px solid #d68585;
   img {
+    display: flex;
     width: 600px;
     height: 600px;
+  }
+  .lazy-image {
+    background: url('~assets/loading.gif') no-repeat center;
   }
 }
 </style>
