@@ -1,7 +1,7 @@
-import { tokenLoginRequest } from '../axios/index'
+import { baseAxios } from '../axios/index'
 // 签名登录
 export function loginWithToken(params) {
-  return tokenLoginRequest({
+  return baseAxios({
     url: '/v1/student/getYearSummaryToken',
     method: 'post',
     params

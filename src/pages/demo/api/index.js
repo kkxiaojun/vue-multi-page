@@ -1,9 +1,9 @@
 import { activityAxios } from '@/axios'
 
-// 获取砍刀记录明细
-export function getInfo(params) {
+// 获取奖学金列表
+export function getScholarshipList(params) {
   return activityAxios({
-    url: '/apply/share/bargain/getInfo',
+    url: '/apply/share/bargain',
     method: 'get',
     params
   })

@@ -1,4 +1,4 @@
-# hll-user-activity-h5
+# vue-multi-page
 活动页h5多页面配置，并结合`jenkins`和`nginx`实现，每次增加一个页面，只需要在`jenkins`的动态参数中增加一个参数
 
 ## 使用说明
