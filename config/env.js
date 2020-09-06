@@ -1,11 +1,11 @@
 const localConfig = {
   DEV: {
     ENV: 'dev',
-    BASE_API: '//gw-uo-test.61info.cn',
+    BASE_API: '',
   },
   TEST: {
     ENV: 'test',
-    BASE_API: '//gw-uo-test.61info.cn',
+    BASE_API: '',
   },
   PRE: {
     ENV: 'pre',

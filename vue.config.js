@@ -4,11 +4,10 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const { getEntry, getNPMParams } = require('./webpack/utils')
-const entry = getEntry('src/pages/*/main.js', getNPMParams().page, '.')
+const entry = getEntry('src/pages/**/*.html', getNPMParams().page)
 const IS_PRODUCTION = process.env.ENV === 'prod'
 const ENV_CONFIG = require('./config/env')
-
-const port = 8081
+const port = 8888
 const pageName = getNPMParams().page.split('/')[1]
 
 module.exports = {

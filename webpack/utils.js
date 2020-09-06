@@ -2,22 +2,25 @@ const glob = require('glob')
 const path = require('path')
 const fs = require('fs')
 
-function getEntry(globPath, filterStr, splitCode = '/') {
-  const entries = {}
-
-  glob.sync(globPath).forEach(item => {
-    const entryPathArr = item.split('/').splice(-3, 2)
-    const entryName = item.split('/').splice(-2, 1)
-    console.log('entryName:', entryName)
-    if (filterStr) {
-      if (entryPathArr.join('/') === filterStr) {
-        entries['index'] = {
-          entry: 'src/' + filterStr + '/main.js',
-          template: 'src/' + filterStr + '/index.html'
-        }
+/**
+ * @param {*String} filterPath 
+ * @param {*String} filterStr 
+ */
+function getEntry (filterPath, filterStr) {
+  let globPath = filterPath
+  let files = glob.sync(globPath)
+  let dirname, entries = {}
+  for (let i = 0; i < files.length; i++) {
+    dirname = path.dirname(files[i])
+    if (dirname.includes(filterStr)) {
+      entries['index'] = {
+        entry: dirname + '/main.js',
+        template: dirname + '/index.html'
       }
+      break
     }
-  })
+  }
+  console.log('getEntry:', entries)
   return entries
 }
 
@@ -28,7 +31,7 @@ function getNPMParams() {
   } catch (ex) {
     argv = process.argv
   }
-  console.log('argv', argv)
+  console.log('argv----', argv)
   const params = {}
   argv &&
   argv.forEach(item => {
@@ -48,6 +51,7 @@ function getNPMParams() {
   }
   return params
 }
+
 
 module.exports = {
   getEntry,
