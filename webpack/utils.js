@@ -20,7 +20,6 @@ function getEntry (filterPath, filterStr) {
       break
     }
   }
-  console.log('getEntry:', entries)
   return entries
 }
 

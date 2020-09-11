@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service serve --mode test",
-    "serve": "cross-env NODE_ENV=dev PROCESS_ENV=test vue-cli-service serve --mode test",
-    "test": "cross-env NODE_ENV=production PROCESS_ENV=test vue-cli-service build --mode build",
-    "preprod": "cross-env NODE_ENV=production PROCESS_ENV=pre vue-cli-service build --mode build",
-    "build": "cross-env NODE_ENV=production PROCESS_ENV=prod vue-cli-service build --mode build",
+    "dev": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service serve",
+    "serve": "cross-env NODE_ENV=dev PROCESS_ENV=test vue-cli-service serve",
+    "test": "cross-env PROCESS_ENV=test vue-cli-service build",
+    "preprod": "cross-env PROCESS_ENV=pre vue-cli-service build",
+    "build": "cross-env PROCESS_ENV=prod vue-cli-service build",
     "lint": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service lint"
   },
   "dependencies": {
