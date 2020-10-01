@@ -8,7 +8,7 @@
     "test": "cross-env PROCESS_ENV=test vue-cli-service build",
     "preprod": "cross-env PROCESS_ENV=pre vue-cli-service build",
     "build": "cross-env PROCESS_ENV=prod vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint .vue,.js src/pages/demo",
     "format": "prettier --write \"src/pages/**/*.js\" \"src/pages/**/*.vue\""
   },
   "dependencies": {

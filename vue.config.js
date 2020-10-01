@@ -43,7 +43,7 @@ module.exports = {
     })
     if (!IS_PRODUCTION) {
       // 启用缓存
-      // config.plugin('hardSource').use(new HardSourceWebpackPlugin())
+      config.plugin('hardSource').use(new HardSourceWebpackPlugin())
 
       // 控制台显示
       config.plugin('FriendlyErrorsWebpackPlugin').use(
