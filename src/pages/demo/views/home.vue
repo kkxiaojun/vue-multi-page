@@ -29,8 +29,9 @@ export default {
   },
   methods: {
     initMethods() {
+      const name = 'dddd'
       Object.defineProterty(Object, 'assign1', {})
-      console.log('ss')
+      console.log('ss', name)
     },
     initLoad() {
       try {

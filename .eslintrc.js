@@ -1,8 +1,11 @@
 module.exports = {
   extends: ['plugin:vue/strongly-recommended', 'plugin:prettier/recommended'],
   rules: {
-    'prettier/prettier': 'error',
     // ...other codes
+    'no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
+    ],
     'vue/max-attributes-per-line': 0,
     'vue/html-indent': 0,
     'vue/require-prop-types': 0,
