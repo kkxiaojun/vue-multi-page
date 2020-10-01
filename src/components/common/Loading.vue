@@ -88,7 +88,7 @@
 
 <script>
 export default {
-  name: 'my-loading',
+  name: 'MyLoading',
   data() {
     return {
       show: true,

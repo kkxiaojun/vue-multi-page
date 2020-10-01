@@ -29,42 +29,45 @@ module.exports = {
         utils: path.resolve(__dirname, 'src/utils'), // 公用的函数
         pages: path.resolve(__dirname, 'src/pages'), // 多页面目录
         assets: path.resolve(__dirname, 'src/assets'), // 图片资料
-        components: path.resolve(__dirname, 'src/components') // 公用组件
-      }
-    }
+        components: path.resolve(__dirname, 'src/components'), // 公用组件
+      },
+    },
   },
   chainWebpack: config => {
     // 注入环境变量
     config.plugin('define').tap(args => {
-      args[0]['process.env'] = JSON.stringify(ENV_CONFIG[(process.env.PROCESS_ENV).toLocaleUpperCase()])
+      args[0]['process.env'] = JSON.stringify(
+        ENV_CONFIG[process.env.PROCESS_ENV.toLocaleUpperCase()],
+      )
       return args
     })
     if (!IS_PRODUCTION) {
       // 启用缓存
-      config.plugin('hardSource')
-        .use(new HardSourceWebpackPlugin())
+      config.plugin('hardSource').use(new HardSourceWebpackPlugin())
 
       // 控制台显示
-      config.plugin('FriendlyErrorsWebpackPlugin')
-        .use(new FriendlyErrorsWebpackPlugin({
+      config.plugin('FriendlyErrorsWebpackPlugin').use(
+        new FriendlyErrorsWebpackPlugin({
           compilationSuccessInfo: {
-            messages: [`请访问: http://localhost:${port}/${pageName}.html#/home`]
-          }
-        }))
+            messages: [`请访问: http://localhost:${port}/${pageName}.html#/home`],
+          },
+        }),
+      )
     }
 
     if (IS_PRODUCTION) {
       // 开启gzip，需要配置nginx
-      config.plugin('compressionPlugin')
-        .use(new CompressionWebpackPlugin({
+      config.plugin('compressionPlugin').use(
+        new CompressionWebpackPlugin({
           asset: '[path].gz[query]',
           algorithm: 'gzip',
           test: /\.(js|css|html|svg)$/,
           threshold: 10240, // 大于10K才压缩gzip
-          minRatio: 0.8 // 压缩比例(minRatio = Compressed Size / Original Size)
-        }))
+          minRatio: 0.8, // 压缩比例(minRatio = Compressed Size / Original Size)
+        }),
+      )
       // 清除生产环境清除控制台输出
-      config.optimization.minimizer('terser').tap((args) => {
+      config.optimization.minimizer('terser').tap(args => {
         args[0].terserOptions.compress.drop_console = true
         return args
       })
@@ -82,10 +85,10 @@ module.exports = {
             selectorBlackList: ['.van'], // 要忽略的选择器并保留为px。
             // 要忽略的选择器并保留为px。 selectorBlackList: ['.van'], // 要忽略的选择器并保留为px。
             propList: ['*'], // 可以从px更改为rem的属性。
-            minPixelValue: 2 // 设置要替换的最小像素值。
-          })
-        ]
-      }
-    }
-  }
+            minPixelValue: 2, // 设置要替换的最小像素值。
+          }),
+        ],
+      },
+    },
+  },
 }
