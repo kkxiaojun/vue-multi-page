@@ -12,7 +12,7 @@
 
 <script>
 import { getScholarshipList } from '../api/index'
-// import LazyImage from '../utils/LazyImage'
+import LazyImage from '../utils/LazyImage'
 export default {
   data() {
     return {
@@ -23,9 +23,9 @@ export default {
   mounted() {
     true ? this.initLoad() : ''
 
-    // this.$nextTick(() => {
-    //   new LazyImage('.lazy-image')
-    // })
+    this.$nextTick(() => {
+      new LazyImage('.lazy-image')
+    })
   },
   methods: {
     initMethods() {
