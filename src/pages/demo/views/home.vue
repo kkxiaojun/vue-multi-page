@@ -21,7 +21,7 @@ export default {
     }
   },
   mounted() {
-    this.initLoad()
+    true ? this.initLoad() : ''
 
     // this.$nextTick(() => {
     //   new LazyImage('.lazy-image')
