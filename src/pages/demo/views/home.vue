@@ -4,7 +4,7 @@
     <div class="img-box" v-for="(item, index) in imgList" :key="index">
       <!-- <img :src="item" loading="lazy" alt="demo"> -->
       <img class="lazy-image" v-imgLazy="item" alt="..." />
-      <!-- <iframe :src="item" loading="lazy"></iframe> -->
+      <iframe :src="item" loading="lazy"></iframe>
     </div>
   </div>
 </template>
