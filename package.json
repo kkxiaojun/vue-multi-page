@@ -53,13 +53,13 @@
   "lint-staged": {
     "*.{js,vue}": [
       "prettier --write",
-      "lint",
+      "eslint --fix",
       "git add ."
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint lint-staged",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
