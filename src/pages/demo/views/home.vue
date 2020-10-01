@@ -1,17 +1,9 @@
 <template>
   <div>
     <!-- <img :src="loadingImg" alt=""> -->
-    <div
-      class="img-box"
-      v-for="(item, index) in imgList"
-      :key="index"
-    >
+    <div class="img-box" v-for="(item, index) in imgList" :key="index">
       <!-- <img :src="item" loading="lazy" alt="demo"> -->
-      <img
-        class="lazy-image"
-        v-imgLazy="item"
-        alt="..."
-      >
+      <img class="lazy-image" v-imgLazy="item" alt="..." />
       <!-- <iframe :src="item" loading="lazy"></iframe> -->
     </div>
   </div>
@@ -28,13 +20,7 @@ export default {
     }
   },
   mounted() {
-
-    
-    this.initLoad();
-
-
-
-
+    this.initLoad()
 
     // this.$nextTick(() => {
     //   new LazyImage('.lazy-image')
