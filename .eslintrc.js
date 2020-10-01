@@ -1,8 +1,10 @@
 module.exports = {
-  extends: ['@vue/standard', 'plugin:vue/strongly-recommended'],
+  extends: [
+    'plugin:vue/strongly-recommended'
+  ],
   rules: {
     // ...other codes
-    'prettier/prettier': 'error',
+    // 'prettier/prettier': 'error',
   },
   parserOptions: {
     parser: 'babel-eslint',
