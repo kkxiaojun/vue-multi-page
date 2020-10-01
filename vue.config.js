@@ -49,7 +49,9 @@ module.exports = {
       config.plugin('FriendlyErrorsWebpackPlugin').use(
         new FriendlyErrorsWebpackPlugin({
           compilationSuccessInfo: {
-            messages: [`请访问: http://localhost:${port}/${pageName}.html#/home`],
+            messages: [
+              `请访问: http://localhost:${port}/${pageName}.html#/home`,
+            ],
           },
         }),
       )
