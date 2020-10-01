@@ -3,17 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service serve --mode test",
-    "serve": "cross-env NODE_ENV=dev PROCESS_ENV=test vue-cli-service serve --mode test",
-    "test": "cross-env NODE_ENV=production PROCESS_ENV=test vue-cli-service build --mode build",
+    "dev": "cross-env PROCESS_ENV=dev vue-cli-service serve --mode test",
+    "serve": "cross-env PROCESS_ENV=test vue-cli-service serve --mode test",
+    "test": "cross-env PROCESS_ENV=test vue-cli-service build --mode build",
     "preprod": "cross-env NODE_ENV=production PROCESS_ENV=pre vue-cli-service build --mode build",
-    "build": "cross-env NODE_ENV=production PROCESS_ENV=prod vue-cli-service build --mode build",
-    "lint": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service lint"
+    "build": "cross-env PROCESS_ENV=prod vue-cli-service build --mode build",
+    "lint": "cross-env PROCESS_ENV=dev vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.6.4",
     "vant": "^2.9.0",
-    "vconsole": "^3.3.4",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6"
   },
@@ -78,9 +76,5 @@
         "never"
       ]
     }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  }
 }

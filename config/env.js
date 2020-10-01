@@ -24,7 +24,7 @@ module.exports = (conf => {
     conf[env] = Object.assign(
       {
         BASE_API: "/",
-        PROCESS_ENV: env.toLocaleLowerCase(),
+        PROCESS_ENV: env && env.toLocaleLowerCase(),
         NODE_ENV: "production"
       },
       conf[env] || {}
