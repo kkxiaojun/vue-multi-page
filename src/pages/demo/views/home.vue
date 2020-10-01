@@ -26,6 +26,11 @@ export default {
     // })
   },
   methods: {
+    initMethods() {
+      Object.defineProterty(Object, 'assign1', {
+        
+      })
+    },
     initLoad() {
       try {
         // 异步错误-window.onerror
