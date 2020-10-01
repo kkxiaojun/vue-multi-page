@@ -41,9 +41,6 @@ export default {
         console.log('捕获到setTimeout异常：', e)
       }
 
-      // getScholarshipList({ opendId: 'omsXu0ugFvGziGtY1Lyf0tAI9Noo' })
-      //   .then(res => {})
-      //   .catch(e => {})
       for (let index = 1; index <= 14; index++) {
         if (index >= 6) {
           this.imgList.push(require(`assets/demo${index}.jpg`))

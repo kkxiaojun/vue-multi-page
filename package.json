@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service serve",
+    "dev": "cross-env PROCESS_ENV=dev vue-cli-service serve",
     "serve": "cross-env NODE_ENV=dev PROCESS_ENV=test vue-cli-service serve",
     "test": "cross-env PROCESS_ENV=test vue-cli-service build",
     "preprod": "cross-env PROCESS_ENV=pre vue-cli-service build",
     "build": "cross-env PROCESS_ENV=prod vue-cli-service build",
     "lint": "cross-env NODE_ENV=dev PROCESS_ENV=dev vue-cli-service lint",
-    "format": "prettier --write \"src/**/*.js\" \"src/**/*.vue\""
+    "format": "prettier --write \"src/pages/**/*.js\" \"src/pages/**/*.vue\""
   },
   "dependencies": {
     "vant": "^2.9.0",
@@ -29,8 +29,10 @@
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
@@ -50,9 +52,8 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "prettier --write",
       "vue-cli-service lint",
-      "git add ."
+      "git add"
     ]
   },
   "husky": {

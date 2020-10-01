@@ -19,7 +19,7 @@ module.exports = {
   outputDir: 'dist/' + pageName,
   devServer: {
     port: port,
-    disableHostCheck: true
+    disableHostCheck: true,
     // compress: true // GZIP
   },
   configureWebpack: {
