@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       loadingImg: require('assets/loading.gif'),
-      imgList: []
+      imgList: [],
     }
   },
   mounted() {
@@ -27,9 +27,8 @@ export default {
   },
   methods: {
     initMethods() {
-      Object.defineProterty(Object, 'assign1', {
-        
-      })
+      Object.defineProterty(Object, 'assign1', {})
+      console.log('ss')
     },
     initLoad() {
       try {
@@ -41,9 +40,9 @@ export default {
         console.log('捕获到setTimeout异常：', e)
       }
 
-      getScholarshipList({ opendId: 'omsXu0ugFvGziGtY1Lyf0tAI9Noo' })
-        .then(res => {})
-        .catch(e => {})
+      // getScholarshipList({ opendId: 'omsXu0ugFvGziGtY1Lyf0tAI9Noo' })
+      //   .then(res => {})
+      //   .catch(e => {})
       for (let index = 1; index <= 14; index++) {
         if (index >= 6) {
           this.imgList.push(require(`assets/demo${index}.jpg`))
@@ -51,8 +50,8 @@ export default {
           this.imgList.push(require(`assets/demo${index}.png`))
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

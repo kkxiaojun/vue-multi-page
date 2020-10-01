@@ -13,7 +13,7 @@ export function parseTime(time, cFormat) {
     d: date.getDate(),
     h: date.getHours(),
     i: date.getMinutes(),
-    s: date.getSeconds()
+    s: date.getSeconds(),
   }
   return format.replace(/{(y|m|d|h|i|s)+}/g, (result, key) => {
     let value = formatObj[key]

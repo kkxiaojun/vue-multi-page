@@ -6,23 +6,23 @@ const routes = [
   {
     path: '*',
     name: '',
-    redirect: '/home'
+    redirect: '/home',
   },
   {
     path: '/home',
     name: 'home',
     component: () => import('../views/home.vue'),
     meta: {
-      title: 'page'
-    }
-  }
+      title: 'page',
+    },
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
-router.beforeEach(async(to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   // 设置页面标题
   document.title = to.meta.title || 'demo'
   next()

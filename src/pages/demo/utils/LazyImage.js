@@ -54,7 +54,7 @@ export default class LazyImage {
       })
     })
     // 监听每一个lazeImage
-    this.lazyImages.forEach(function(lazyImage) {
+    this.lazyImages.forEach(function (lazyImage) {
       lazyObserver.observe(lazyImage)
     })
   }
@@ -68,19 +68,19 @@ export default class LazyImage {
   throttle(func, delay = 15, immediate = 30) {
     let timeout = null
     const context = this
-    return function() {
+    return function () {
       const args = arguments
       timeout && clearTimeout(timeout)
       // 是否立即执行
       if (immediate) {
         // 已执行，则delay秒后才执行，清除timeout
         const callNow = !timeout
-        timeout = setTimeout(function() {
+        timeout = setTimeout(function () {
           timeout = null
         }, delay)
         callNow && func.apply(context, args)
       } else {
-        timeout = setTimeout(function() {
+        timeout = setTimeout(function () {
           func.apply(context, args)
         }, delay)
       }

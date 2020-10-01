@@ -12,7 +12,7 @@ Vue.use(Vant)
 
 new Vue({
   render: h => h(App),
-  router
+  router,
 }).$mount('#app')
 
 // 异常处理
@@ -23,12 +23,22 @@ Vue.config.errorHandler = (err, vm, info) => {
 }
 
 // 异步异常
-window.onerror = function(message, source, lineno, colno, error) {
-  console.log('---onerror捕获到异常---：', { message, source, lineno, colno, error })
+window.onerror = function (message, source, lineno, colno, error) {
+  console.log('---onerror捕获到异常---：', {
+    message,
+    source,
+    lineno,
+    colno,
+    error,
+  })
   return true
 }
 
 // 异步异常
-window.addEventListener('error', (error) => {
-  console.log('---addEventListener捕获到异常---：', error)
-}, true)
+window.addEventListener(
+  'error',
+  error => {
+    console.log('---addEventListener捕获到异常---：', error)
+  },
+  true,
+)

@@ -3,7 +3,7 @@ import loadingImg from '@/assets/loading.gif'
 let timer = null
 
 // 创建一个监听器
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
   // entries是所有被监听对象的集合
   entries.forEach(entry => {
     // 当被监听元素到临界值且未加载图片时触发。
@@ -47,5 +47,5 @@ export default {
   update(el, binding) {
     el.isLoaded = false
     el.dataSrc = binding.value
-  }
+  },
 }

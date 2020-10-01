@@ -1,4 +1,3 @@
-
 import axios from 'axios'
 
 import { Toast } from 'vant'
@@ -7,18 +6,16 @@ Object.assign(axios.defaults, {
   timeout: 20 * 1000,
   baseURL: process.env.BASE_API,
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-  }
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+  },
 })
 
 export default function createAxios(conf = {}, type = 'login') {
   const service = axios.create(conf)
   // request拦截器
-  service.interceptors.request.use(
-    config => {
-      return config
-    }
-  )
+  service.interceptors.request.use(config => {
+    return config
+  })
   service.interceptors.response.use(
     response => {
       const res = response.data
@@ -28,7 +25,7 @@ export default function createAxios(conf = {}, type = 'login') {
       } else {
         Toast.fail({
           message: res.msg || res.message,
-          className: 'errorToast'
+          className: 'errorToast',
         })
         return Promise.reject(res)
       }
@@ -36,10 +33,10 @@ export default function createAxios(conf = {}, type = 'login') {
     error => {
       Toast.fail({
         message: '网络错误,请退出重新尝试',
-        className: 'errorToast'
+        className: 'errorToast',
       })
       return Promise.reject(error)
-    }
+    },
   )
   return service
 }

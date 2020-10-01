@@ -5,7 +5,8 @@ module.exports = {
   },
   'extends': [
     'plugin:vue/essential',
-    '@vue/standard'
+    '@vue/standard',
+    'plugin:vue/strongly-recommended'
   ],
   rules: {
     'space-before-function-paren': [2, { 'anonymous': 'never', 'named': 'never' }],

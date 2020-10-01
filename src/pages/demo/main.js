@@ -7,7 +7,6 @@ import lazyImage from '@/directives/lazyImage'
 
 import VueRouter from 'vue-router'
 import router from './router'
-import { map } from 'core-js/fn/array'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -17,7 +16,7 @@ Vue.directive('imgLazy', lazyImage)
 
 new Vue({
   render: h => h(App),
-  router
+  router,
 }).$mount('#app')
 
 // 异常处理
@@ -27,16 +26,15 @@ Vue.config.errorHandler = (err, vm, info) => {
   console.log('info', info)
 }
 
-// try catch 局限性：1. 语法错误 2. 异步错误 3. 且对于代码的侵入性较强
-try {
-  map.info
-} catch (error) {
-  
-}
-
 // 异步异常
-window.onerror = function(message, source, lineno, colno, error) {
-  console.log('---onerror捕获到异常---：', { message, source, lineno, colno, error })
+window.onerror = function (message, source, lineno, colno, error) {
+  console.log('---onerror捕获到异常---：', {
+    message,
+    source,
+    lineno,
+    colno,
+    error,
+  })
   return true
 }
 
@@ -54,6 +52,10 @@ window.onerror = function(message, source, lineno, colno, error) {
 
 // window.addEventListener 不同于 window.onerror，它通过事件捕获获取 error 信息，从而可以对网络资源的加载异常进行处理
 
-window.addEventListener('error', (error) => {
-  console.log('---addEventListener捕获到异常---：', error)
-}, true)
+window.addEventListener(
+  'error',
+  error => {
+    console.log('---addEventListener捕获到异常---：', error)
+  },
+  true,
+)

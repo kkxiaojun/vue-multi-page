@@ -1,6 +1,6 @@
 /* 判断浏览器类型 */
 export const browser = {
-  versions: (function() {
+  versions: (function () {
     var u = navigator.userAgent
     return {
       trident: u.indexOf('Trident') > -1, // IE内核
@@ -14,8 +14,8 @@ export const browser = {
       iPad: u.indexOf('iPad') > -1 || u.indexOf('Macintosh') > -1, // 是否iPad
       webApp: u.indexOf('Safari') === -1, // 是否web应该程序，没有头部与底部
       weixin: u.indexOf('MicroMessenger') > -1, // 是否微信 （2015-01-22新增）
-      qq: u.indexOf(' QQ') > -1 // 是否QQ
+      qq: u.indexOf(' QQ') > -1, // 是否QQ
     }
-  }()),
-  language: (navigator.browserLanguage || navigator.language).toLowerCase()
+  })(),
+  language: (navigator.browserLanguage || navigator.language).toLowerCase(),
 }

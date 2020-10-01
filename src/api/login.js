@@ -4,6 +4,6 @@ export function loginWithToken(params) {
   return baseAxios({
     url: '/v1/student/getYearSummaryToken',
     method: 'post',
-    params
+    params,
   })
 }

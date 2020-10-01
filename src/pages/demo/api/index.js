@@ -5,6 +5,6 @@ export function getScholarshipList(params) {
   return activityAxios({
     url: '/apply/share/bargain',
     method: 'get',
-    params
+    params,
   })
 }

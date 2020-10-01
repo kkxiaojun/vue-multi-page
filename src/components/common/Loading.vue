@@ -91,297 +91,297 @@ export default {
   name: 'my-loading',
   data() {
     return {
-      show: true
+      show: true,
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .popup {
-    background-color: transparent;
-  }
-  svg {
-    height: 60px;
-    width: 60px;
-    margin: 0 2em 2em;
-    overflow: visible;
-    /*   border: 1px solid red; */
+.popup {
+  background-color: transparent;
+}
+svg {
+  height: 60px;
+  width: 60px;
+  margin: 0 2em 2em;
+  overflow: visible;
+  /*   border: 1px solid red; */
+}
+
+.g-circles {
+  -webkit-transform: scale(0.9) translate(7px, 7px);
+  -ms-transform: scale(0.9) translate(7px, 7px);
+  transform: scale(0.9) translate(7px, 7px);
+}
+
+circle {
+  fill: dodgerblue;
+  fill-opacity: 0;
+  -webkit-animation: opacity 1.2s linear infinite;
+  animation: opacity 1.2s linear infinite;
+}
+circle:nth-child(12n + 1) {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+}
+circle:nth-child(12n + 2) {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+circle:nth-child(12n + 3) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+circle:nth-child(12n + 4) {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+circle:nth-child(12n + 5) {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+circle:nth-child(12n + 6) {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+circle:nth-child(12n + 7) {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s;
+}
+circle:nth-child(12n + 8) {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+circle:nth-child(12n + 9) {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+circle:nth-child(12n + 10) {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+circle:nth-child(12n + 11) {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+circle:nth-child(12n + 12) {
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+
+.g-circles--v2 circle {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+  stroke-width: 1;
+  stroke: yellowgreen;
+  -webkit-animation-name: opacity-stroke, colors, colors-stroke, transform-2;
+  animation-name: opacity-stroke, colors, colors-stroke, transform-2;
+}
+
+.g-circles--v3 circle {
+  fill-opacity: 1;
+  -webkit-animation-name: opacity, colors;
+  animation-name: opacity, colors;
+}
+
+.g-circles--v4 circle {
+  fill-opacity: 1;
+  fill: orange;
+  -webkit-transform-origin: 60px 60px;
+  -ms-transform-origin: 60px 60px;
+  transform-origin: 60px 60px;
+  -webkit-animation-name: opacity, colors-3, transform;
+  animation-name: opacity, colors-3, transform;
+}
+
+@-webkit-keyframes opacity {
+  3% {
+    fill-opacity: 1;
   }
 
-  .g-circles {
-    -webkit-transform: scale(0.9) translate(7px, 7px);
-    -ms-transform: scale(0.9) translate(7px, 7px);
-    transform: scale(0.9) translate(7px, 7px);
-  }
-
-  circle {
-    fill: dodgerblue;
+  75% {
     fill-opacity: 0;
-    -webkit-animation: opacity 1.2s linear infinite;
-    animation: opacity 1.2s linear infinite;
   }
-  circle:nth-child(12n + 1) {
-    -webkit-animation-delay: -0.1s;
-    animation-delay: -0.1s;
-  }
-  circle:nth-child(12n + 2) {
-    -webkit-animation-delay: -0.2s;
-    animation-delay: -0.2s;
-  }
-  circle:nth-child(12n + 3) {
-    -webkit-animation-delay: -0.3s;
-    animation-delay: -0.3s;
-  }
-  circle:nth-child(12n + 4) {
-    -webkit-animation-delay: -0.4s;
-    animation-delay: -0.4s;
-  }
-  circle:nth-child(12n + 5) {
-    -webkit-animation-delay: -0.5s;
-    animation-delay: -0.5s;
-  }
-  circle:nth-child(12n + 6) {
-    -webkit-animation-delay: -0.6s;
-    animation-delay: -0.6s;
-  }
-  circle:nth-child(12n + 7) {
-    -webkit-animation-delay: -0.7s;
-    animation-delay: -0.7s;
-  }
-  circle:nth-child(12n + 8) {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s;
-  }
-  circle:nth-child(12n + 9) {
-    -webkit-animation-delay: -0.9s;
-    animation-delay: -0.9s;
-  }
-  circle:nth-child(12n + 10) {
-    -webkit-animation-delay: -1s;
-    animation-delay: -1s;
-  }
-  circle:nth-child(12n + 11) {
-    -webkit-animation-delay: -1.1s;
-    animation-delay: -1.1s;
-  }
-  circle:nth-child(12n + 12) {
-    -webkit-animation-delay: -1.2s;
-    animation-delay: -1.2s;
+}
+
+@keyframes opacity {
+  3% {
+    fill-opacity: 1;
   }
 
-  .g-circles--v2 circle {
+  75% {
     fill-opacity: 0;
+  }
+}
+@-webkit-keyframes opacity-stroke {
+  10% {
+    stroke-opacity: 1;
+  }
+
+  85% {
     stroke-opacity: 0;
-    stroke-width: 1;
+  }
+}
+@keyframes opacity-stroke {
+  10% {
+    stroke-opacity: 1;
+  }
+
+  85% {
+    stroke-opacity: 0;
+  }
+}
+@-webkit-keyframes colors {
+  0% {
+    fill: yellowgreen;
+  }
+
+  10% {
+    fill: gold;
+  }
+
+  75% {
+    fill: crimson;
+  }
+}
+@keyframes colors {
+  0% {
+    fill: yellowgreen;
+  }
+
+  10% {
+    fill: gold;
+  }
+
+  75% {
+    fill: crimson;
+  }
+}
+@-webkit-keyframes colors-stroke {
+  0% {
     stroke: yellowgreen;
-    -webkit-animation-name: opacity-stroke, colors, colors-stroke, transform-2;
-    animation-name: opacity-stroke, colors, colors-stroke, transform-2;
   }
 
-  .g-circles--v3 circle {
-    fill-opacity: 1;
-    -webkit-animation-name: opacity, colors;
-    animation-name: opacity, colors;
+  10% {
+    stroke: gold;
   }
 
-  .g-circles--v4 circle {
-    fill-opacity: 1;
+  75% {
+    stroke: crimson;
+  }
+}
+@keyframes colors-stroke {
+  0% {
+    stroke: yellowgreen;
+  }
+
+  10% {
+    stroke: gold;
+  }
+
+  75% {
+    stroke: crimson;
+  }
+}
+@-webkit-keyframes colors-2 {
+  0% {
+    fill: yellow;
+  }
+
+  50% {
+    fill: red;
+  }
+
+  65% {
+    fill: orangered;
+  }
+
+  95% {
+    fill: gold;
+  }
+}
+@keyframes colors-2 {
+  0% {
+    fill: yellow;
+  }
+
+  50% {
+    fill: red;
+  }
+
+  65% {
+    fill: orangered;
+  }
+
+  95% {
+    fill: gold;
+  }
+}
+@-webkit-keyframes colors-3 {
+  0% {
+    fill: yellowgreen;
+  }
+
+  50% {
+    fill: turquoise;
+  }
+
+  65% {
+    fill: yellow;
+  }
+
+  95% {
     fill: orange;
-    -webkit-transform-origin: 60px 60px;
-    -ms-transform-origin: 60px 60px;
-    transform-origin: 60px 60px;
-    -webkit-animation-name: opacity, colors-3, transform;
-    animation-name: opacity, colors-3, transform;
+  }
+}
+@keyframes colors-3 {
+  0% {
+    fill: yellowgreen;
   }
 
-  @-webkit-keyframes opacity {
-    3% {
-      fill-opacity: 1;
-    }
-
-    75% {
-      fill-opacity: 0;
-    }
+  50% {
+    fill: turquoise;
   }
 
-  @keyframes opacity {
-    3% {
-      fill-opacity: 1;
-    }
-
-    75% {
-      fill-opacity: 0;
-    }
+  65% {
+    fill: yellow;
   }
-  @-webkit-keyframes opacity-stroke {
-    10% {
-      stroke-opacity: 1;
-    }
 
-    85% {
-      stroke-opacity: 0;
-    }
+  95% {
+    fill: orange;
   }
-  @keyframes opacity-stroke {
-    10% {
-      stroke-opacity: 1;
-    }
-
-    85% {
-      stroke-opacity: 0;
-    }
+}
+@-webkit-keyframes transform {
+  10% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
   }
-  @-webkit-keyframes colors {
-    0% {
-      fill: yellowgreen;
-    }
-
-    10% {
-      fill: gold;
-    }
-
-    75% {
-      fill: crimson;
-    }
+}
+@keyframes transform {
+  10% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
   }
-  @keyframes colors {
-    0% {
-      fill: yellowgreen;
-    }
-
-    10% {
-      fill: gold;
-    }
-
-    75% {
-      fill: crimson;
-    }
+}
+@-webkit-keyframes transform-2 {
+  40% {
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
   }
-  @-webkit-keyframes colors-stroke {
-    0% {
-      stroke: yellowgreen;
-    }
 
-    10% {
-      stroke: gold;
-    }
-
-    75% {
-      stroke: crimson;
-    }
+  60% {
+    stroke-width: 20;
   }
-  @keyframes colors-stroke {
-    0% {
-      stroke: yellowgreen;
-    }
-
-    10% {
-      stroke: gold;
-    }
-
-    75% {
-      stroke: crimson;
-    }
+}
+@keyframes transform-2 {
+  40% {
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
   }
-  @-webkit-keyframes colors-2 {
-    0% {
-      fill: yellow;
-    }
 
-    50% {
-      fill: red;
-    }
-
-    65% {
-      fill: orangered;
-    }
-
-    95% {
-      fill: gold;
-    }
+  60% {
+    stroke-width: 20;
   }
-  @keyframes colors-2 {
-    0% {
-      fill: yellow;
-    }
-
-    50% {
-      fill: red;
-    }
-
-    65% {
-      fill: orangered;
-    }
-
-    95% {
-      fill: gold;
-    }
-  }
-  @-webkit-keyframes colors-3 {
-    0% {
-      fill: yellowgreen;
-    }
-
-    50% {
-      fill: turquoise;
-    }
-
-    65% {
-      fill: yellow;
-    }
-
-    95% {
-      fill: orange;
-    }
-  }
-  @keyframes colors-3 {
-    0% {
-      fill: yellowgreen;
-    }
-
-    50% {
-      fill: turquoise;
-    }
-
-    65% {
-      fill: yellow;
-    }
-
-    95% {
-      fill: orange;
-    }
-  }
-  @-webkit-keyframes transform {
-    10% {
-      -webkit-transform: scale(0.75);
-      transform: scale(0.75);
-    }
-  }
-  @keyframes transform {
-    10% {
-      -webkit-transform: scale(0.75);
-      transform: scale(0.75);
-    }
-  }
-  @-webkit-keyframes transform-2 {
-    40% {
-      -webkit-transform: scale(0.85);
-      transform: scale(0.85);
-    }
-
-    60% {
-      stroke-width: 20;
-    }
-  }
-  @keyframes transform-2 {
-    40% {
-      -webkit-transform: scale(0.85);
-      transform: scale(0.85);
-    }
-
-    60% {
-      stroke-width: 20;
-    }
-  }
+}
 </style>
