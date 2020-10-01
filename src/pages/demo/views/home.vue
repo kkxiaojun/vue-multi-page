@@ -16,11 +16,11 @@ export default {
   data() {
     return {
       loadingImg: require('assets/loading.gif'),
-      imgList: [],
+      imgList: []
     }
   },
   mounted() {
-    this.initLoad()
+    this.initLoad();
     // this.$nextTick(() => {
     //   new LazyImage('.lazy-image')
     // })
