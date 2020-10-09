@@ -8,7 +8,7 @@
 import { getScholarshipList } from '../api/index'
 export default {
   props: {
-    CardDetail: {
+    cardDetail: {
       type: Object,
       default: () => {},
     },
