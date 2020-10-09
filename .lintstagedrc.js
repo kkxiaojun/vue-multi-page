@@ -1,7 +1,7 @@
 module.exports = {
   "src/**/*.{js,vue}": [
     "prettier --write",
-    "eslint --fix --ext .vue,.js src/ src/pages",
+    "eslint --fix --ext .vue,.js src",
     "git add ."
   ],
 }
