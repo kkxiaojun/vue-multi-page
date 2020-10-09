@@ -8,7 +8,7 @@
     "test": "cross-env PROCESS_ENV=test vue-cli-service build",
     "preprod": "cross-env PROCESS_ENV=pre vue-cli-service build",
     "build": "cross-env PROCESS_ENV=prod vue-cli-service build",
-    "lint": "eslint --fix --ext .vue,.js src/ src/pages",
+    "lint": "eslint --fix .vue,.js src/pages/demo",
     "format": "prettier --write \"src/pages/**/*.js\" \"src/pages/**/*.vue\""
   },
   "dependencies": {
@@ -49,5 +49,12 @@
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "prettier --write",
+      "eslint --fix .vue,.js src",
+      "git add ."
+    ]
   }
 }
