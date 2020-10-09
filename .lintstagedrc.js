@@ -1,3 +1,6 @@
+const { getEntry, getNPMParams } = require('./webpack/utils')
+const entry = getEntry('src/pages/**/*.html', getNPMParams().page)
+console.log('entry', entry)
 module.exports = {
   'src/**/*.{js,vue}': filenames => {
     console.log('filenames', filenames)

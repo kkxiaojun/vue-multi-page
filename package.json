@@ -8,7 +8,7 @@
     "test": "cross-env PROCESS_ENV=test vue-cli-service build",
     "preprod": "cross-env PROCESS_ENV=pre vue-cli-service build",
     "build": "cross-env PROCESS_ENV=prod vue-cli-service build",
-    "lint": "eslint --fix .vue,.js src/ src/pages/demo",
+    "lint": "eslint --fix --ext .vue,.js src/ src/pages",
     "format": "prettier --write \"src/pages/**/*.js\" \"src/pages/**/*.vue\""
   },
   "dependencies": {
