@@ -49,18 +49,5 @@
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "prettier --write",
-      "vue-cli-service lint",
-      "git add ."
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
