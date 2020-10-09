@@ -1,5 +1,5 @@
 module.exports = {
-  'src/pages/**/*.{js,vue}': filenames => {
+  'src/**/*.{js,vue}': filenames => {
     console.log('filenames', filenames)
     let files = null
     if (filenames.length < 10) {
