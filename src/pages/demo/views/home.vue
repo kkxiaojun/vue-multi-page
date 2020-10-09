@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       loadingImg: require('assets/loading.gif'),
-      imgList: [],
+      imgList: []
     }
   },
   mounted() {

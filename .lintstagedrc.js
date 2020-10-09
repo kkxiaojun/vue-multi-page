@@ -2,24 +2,9 @@ const { getEntry, getNPMParams } = require('./webpack/utils')
 const entry = getEntry('src/pages/**/*.html', getNPMParams().page)
 console.log('entry', entry)
 module.exports = {
-  'src/**/*.{js,vue}': filenames => {
-    console.log('filenames', filenames)
-    let files = null
-    if (filenames.length < 10) {
-      files = filenames.join(' ')
-    } else {
-      files = 'src/**/*.{js,vue}'
-    }
-    return [`eslint --fix ${files}`, `prettier --write ${files}`, `git add .`]
-  },
-  'pages/**/*.{js,vue}': filenames => {
-    console.log('filenames111', filenames)
-    let files = null
-    if (filenames.length < 10) {
-      files = filenames.join(' ')
-    } else {
-      files = 'pages/**/*.{js,vue}'
-    }
-    return [`eslint --fix ${files}`, `prettier --write ${files}`, `git add .`]
-  },
+  "src/**/*.{js,vue}": [
+    "prettier --write",
+    "lint",
+    "git add ."
+  ],
 }
