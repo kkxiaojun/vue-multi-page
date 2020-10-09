@@ -1,31 +1,20 @@
 <template>
   <div>
-    <!-- <img :src="loadingImg" alt=""> -->
-    <div class="img-box" v-for="(item, index) in imgList" :key="index">
-      <!-- <img :src="item" loading="lazy" alt="demo"> -->
-      <img class="lazy-image" v-imgLazy="item" alt="..." />
-      <iframe :src="item" loading="lazy"></iframe>
-    </div>
-
     <div>sdfdfdf</div>
   </div>
 </template>
 
 <script>
 import { getScholarshipList } from '../api/index'
-import LazyImage from '../utils/LazyImage'
 export default {
   data() {
     return {
       loadingImg: require('assets/loading.gif'),
-      imgList: []
+      imgList: [],
     }
   },
   mounted() {
     true ? this.initLoad() : ''
-    this.$nextTick(() => {
-      new LazyImage('.lazy-image')
-    })
   },
   methods: {
     initMethods() {
