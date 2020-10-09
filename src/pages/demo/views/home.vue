@@ -6,6 +6,7 @@
       <img class="lazy-image" v-imgLazy="item" alt="..." />
       <iframe :src="item" loading="lazy"></iframe>
     </div>
+
     <div>sdfdfdf</div>
   </div>
 </template>
@@ -22,7 +23,6 @@ export default {
   },
   mounted() {
     true ? this.initLoad() : ''
-
     this.$nextTick(() => {
       new LazyImage('.lazy-image')
     })
