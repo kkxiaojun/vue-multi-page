@@ -7,6 +7,12 @@
 <script>
 import { getScholarshipList } from '../api/index'
 export default {
+  props: {
+    CardDetail: {
+      type: Object,
+      default: () => {},
+    },
+  },
   data() {
     return {
       loadingImg: require('assets/loading.gif'),
