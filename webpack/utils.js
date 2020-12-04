@@ -1,25 +1,31 @@
 const glob = require('glob')
 const path = require('path')
 const fs = require('fs')
+const log = require('../utils/log')
 
 /**
- * @param {*String} filterPath 
- * @param {*String} filterStr 
+ * @param {*String} filterPath
+ * @param {*String} filterStr
  */
-function getEntry (filterPath, filterStr) {
-  let globPath = filterPath
-  let files = glob.sync(globPath)
-  let dirname, entries = {}
+function getEntry(filterPath, filterStr) {
+  console.log(filterPath, filterStr)
+  const globPath = filterPath
+  const files = glob.sync(globPath)
+  let dirname
+  const entries = {}
   for (let i = 0; i < files.length; i++) {
-    dirname = path.dirname(files[i])
-    if (dirname.includes(filterStr)) {
-      entries['index'] = {
+    dirname = path.dirname(files[i]);
+    const regx = new RegExp(`${filterStr.replace("/", "\\/")}$`);
+    // if (dirname.includes(filterStr)) {
+    if (regx.test(dirname)) {
+      entries.index = {
         entry: dirname + '/main.js',
-        template: dirname + '/index.html'
+        template: dirname + '/index.html',
       }
       break
     }
   }
+  // console.log(entries)
   return entries
 }
 
@@ -30,7 +36,7 @@ function getNPMParams() {
   } catch (ex) {
     argv = process.argv
   }
-  console.log('argv----', argv)
+  // console.log('argv', argv)
   const params = {}
   argv &&
   argv.forEach(item => {
@@ -41,21 +47,17 @@ function getNPMParams() {
   })
   if (params && params.page) {
     if (!fs.existsSync(path.resolve(__dirname, '../src/', params.page))) {
-      console.log(`${params.page}不存在，请检查pages下是否有该目录`)
+      log.error(`${params.page}不存在，请检查pages下是否有该目录`)
       process.exit()
     }
   } else {
-    console.log('输入格式请参考：npm run serve --page=pages/xxxx')
+    log.info('输入格式请参考：npm run serve --page=pages/xxxx')
     process.exit()
   }
   return params
 }
 
-
 module.exports = {
   getEntry,
-  getNPMParams
+  getNPMParams,
 }
-
-
-

@@ -9,7 +9,8 @@
     "preprod": "cross-env PROCESS_ENV=pre vue-cli-service build",
     "build": "cross-env PROCESS_ENV=prod vue-cli-service build",
     "lint": "eslint --fix --ext .vue,.js src/pages",
-    "format": "prettier --write \"src/pages/**/*.js\" \"src/pages/**/*.vue\""
+    "format": "prettier --write \"src/pages/**/*.js\" \"src/pages/**/*.vue\"",
+    "new:page": "node scripts/createPage.js"
   },
   "dependencies": {
     "vant": "^2.9.0",
@@ -25,6 +26,7 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
+    "chalk": "^4.1.0",
     "compression-webpack-plugin": "^1.1.12",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
@@ -38,6 +40,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "fingerprintjs": "^0.5.3",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "fs-extra": "^9.0.1",
     "hard-source-webpack-plugin": "^0.13.1",
     "html2canvas": "1.0.0-rc.4",
     "husky": "^4.2.5",
@@ -49,12 +52,5 @@
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  },
-  "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "prettier --write",
-      "eslint --fix --ext .vue,.js src",
-      "git add ."
-    ]
   }
 }

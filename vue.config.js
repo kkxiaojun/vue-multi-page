@@ -5,6 +5,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const { getEntry, getNPMParams } = require('./webpack/utils')
 const entry = getEntry('src/pages/**/*.html', getNPMParams().page)
+console.log('entry==>', entry)
 const IS_PRODUCTION = process.env.ENV === 'prod'
 const ENV_CONFIG = require('./config/env')
 const port = 8888

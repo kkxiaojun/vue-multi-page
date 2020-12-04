@@ -5,14 +5,10 @@
 
 ## 使用说明
 ### 在pages下建立自己的页面
+输入命令
 ```
---pages
----demo
-----index.html
-----app.vue
-----main.js
-
-``` 
+  npm run new:page
+```
 
 ### 项目启动和打包
 ```
